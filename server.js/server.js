@@ -1,4 +1,5 @@
 const cors = require('cors');
+const { response } = require('express');
 const express = require('express');
 const app = express();
 const database = require('nedb');
@@ -10,10 +11,30 @@ app.use(express.json())
 
 app.post("/sendata",(req,res )=>{
     console.log(req.body)
-    res.send("Data has been entered into database")
-  
+    const data=req.body
+    
+    movieDb.insert(data,(err,data)=>{
+    console.log('Data has been inserted')
+        res.send("Data has been entered into database")
+    })
   })
 
+  app.get("/getdata",(req,res )=>{
+    res.json({
+        movies:movieDb.getAllData()
+    })
+    
+  })
+app.delete("/deletedata",(req,res)=>{
+    const id = req.body.UserName
+    movieDb.remove({UserName:id},(err,success)=>{
+        console.log('Data has been deleted')
+        movieDb.persistence.compactDatafile()
+        res.send("Data has been deleted from database")
+    })
+
+
+})
 app.get("/Database",(req,res )=>{
     console.log('Database')
     res.send("Data has been entered into database")
