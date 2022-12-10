@@ -1,0 +1,25 @@
+{
+  "name": "movieflex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheAverageRush/MovieFlex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheAverageRush/MovieFlex/issues"
+  },
+  "homepage": "https://github.com/TheAverageRush/MovieFlex#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nedb": "^1.8.0"
+  }
+}
